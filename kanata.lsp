@@ -1,24 +1,24 @@
 (defcfg
-  linux-dev (
-    /dev/input/by-path/platform-i8042-serio-0-event-kbd
-    /dev/input/by-path/pci-0000:33:00.4-usbv2-0:1:1.0-event-kbd
-    /dev/input/by-path/pci-0000:33:00.4-usb-0:1:1.0-event-kbd
-    /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.4:1.0-event-kbd
-    /dev/input/by-path/pci-0000:34:00.4-usb-0:1.4:1.0-event-kbd
-    /dev/input/by-path/pci-0000:34:00.3-usbv2-0:1.2:1.0-event-kbd
-    /dev/input/by-path/pci-0000:34:00.3-usb-0:1.2:1.0-event-kbd
-    /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.0-event-kbd
+linux-dev (
+/dev/input/by-path/platform-i8042-serio-0-event-kbd
+/dev/input/by-path/pci-0000:33:00.4-usbv2-0:1:1.0-event-kbd
+/dev/input/by-path/pci-0000:33:00.4-usb-0:1:1.0-event-kbd
+/dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.4:1.0-event-kbd
+/dev/input/by-path/pci-0000:34:00.4-usb-0:1.4:1.0-event-kbd
+/dev/input/by-path/pci-0000:34:00.3-usbv2-0:1.2:1.0-event-kbd
+/dev/input/by-path/pci-0000:34:00.3-usb-0:1.2:1.0-event-kbd
+/dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.0-event-kbd
 ;;  /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-event
 ;;  /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-event-mouse
 ;;  /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-mouse
-    /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.0-event-kbd
+/dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.0-event-kbd
 ;;  /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-event
-    /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-event-mouse
+/dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-event-mouse
 ;;  /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-mouse
-	/dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd
-	/dev/input/by-id/usb-Logitech_USB_Receiver-event-if01
-	/dev/input/by-id/usb-Logitech_USB_Receiver-if01-mouse
-	/dev/input/by-id/usb-Logitech_USB_Receiver-if01-event-mouse
+/dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd
+/dev/input/by-id/usb-Logitech_USB_Receiver-event-if01
+/dev/input/by-id/usb-Logitech_USB_Receiver-if01-mouse
+/dev/input/by-id/usb-Logitech_USB_Receiver-if01-event-mouse
 ;;  /dev/input/event27
 ;;  /dev/input/event26
 ;;  /dev/input/event24
@@ -30,137 +30,160 @@
 ;;  /dev/input/event10
 ;;  /dev/input/event11
 ;;  /dev/input/event12
-  )
-  process-unmapped-keys yes
-;;log-layer-changes no
+)
+concurrent-tap-hold true
+process-unmapped-keys yes
+  log-layer-changes no
 )
 
-
+;; (defchordsv2-experimental
+;;   (lsft lctl) (multi lsft lalt (layer-while-held shift_alt_layer)) 200 first-release (nothing_layer)
+;; )
 
 (defsrc
-  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
-  grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-  tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
-  caps a     s    d    f    g    h     j    k    l    ;    '    ret
-  lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
-  lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
+esc mute     voldwn   volu    f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+caps a     s    d    f    g    h     j    k    l    ;    '    ret
+lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
+lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
+
+;; (defsrc
+;; esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+;; grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+;; tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+;; caps a     s    d    f    g    h     j    k    l    ;    '    ret
+;; lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
+;; lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
+;; )
 
 (deflayer graphite_angle_kp
-  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
-  @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
-  tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
-  @ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
- @lsft    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
-  @chlctl @chlmet  @chlalt        spc             @chralt @prtsc @rctl lft down rght
+esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home @endesc ins del
+@grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
+tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
+@ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
+@lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
+@laltg @lmet  @laltb        spc             @nav @prtsc @rctl lft down rght
 )
 
+(defalias endesc (tap-dance 200 (end esc)))
+
 (deflayer graphite
-  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
-  @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
-  tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
-  @ctresc n     r   @t_key    s    g    y     h    a    e    i    @,   ret
- @lsft    q     x    m    c    v    k     p    .    @-   @/   rsft  pgup up pgdn
-  @laltg @lmet  @chlalt        spc             @chralt @nav_layer @rctl lft down rght
+esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+@grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
+tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
+@ctresc n     r   @t_key    s    g    y     h    a    e    i    @,   ret
+@lsftl     q     x    m    c    v    k     p    .    @-   @/   rsft  pgup up pgdn
+@laltg @lmet  @laltb         spc             @nav @nav_layer @rctl lft down rght
 )
 
 (deflayer qwerty
-  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
-  @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-  tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
-  @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
- @lsft z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
-  @laltq @chlmet @chlalt         spc              @chralt @nlayer rctl  lft down rght
+esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+@grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+@ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
+@lsftl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
+@laltq @lmet @laltb         spc              @nav @nlayer rctl  lft down rght
 )
 
 (deflayer gaming_layout
-  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
-  @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-  tab  q     w    e    r    y    t     u    i    o    p    [    ]    \
-  @ctresc a  s    .    f    d    h     j    k    l    ;    '    ret
- @lsft z     x    c    v    b    n     m    ,    d    /    rsft     pgup up pgdn
-  @laltq @lmet  @chlalt         spc              @chralt @nlayer rctl  lft down rght
+esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+@grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+tab  q     w    e    r    y    t     u    i    o    p    [    ]    \
+@ctresc a  s    .    f    d    h     j    k    l    ;    '    ret
+@lsft z     x    c    v    b    n     m    ,    d    /    rsft     pgup up pgdn
+@laltq @lmet  @laltb          spc              @nav    @nlayer rctl  lft down rght
 )
 
 (deflayer graphite_vim_layer
-  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
-  @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
-  tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
-  esc n     r    t    s    g    y     h    a    e    i    @,   ret
-  lsft    q     x    m    c    v    k     p    .    @-   @/   rsft  pgup up pgdn
-  @laltg @lmet  @chlalt        spc             @chralt @nlayer rctl lft down rght
+esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+@grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
+tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
+esc n     r    t    s    g    y     h    a    e    i    @,   ret
+lsft    q     x    m    c    v    k     p    .    @-   @/   rsft  pgup up pgdn
+@laltg @lmet  @laltb        spc             @nav @nlayer rctl lft down rght
 )
 
 (deflayer nothing_layer
-  @grk  XX     XX   XX   XX   XX   XX   XX    XX   XX   XX   XX   XX  XX   XX  XX  XX
-  XX    XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX
-  XX   XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX
-  XX      XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX
-  XX   XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX      XX XX XX
-  XX     XX     XX             XX              XX      XX      XX  XX XX XX
+@grk  XX     XX   XX   XX   XX   XX   XX    XX   XX   XX   XX   XX  XX   XX  XX  XX
+XX    XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX
+XX   XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX
+XX      XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX
+XX   XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX      XX XX XX
+XX     XX     XX             XX              XX      XX      XX  XX XX XX
 )
 
 (deflayer default
-  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
-  @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-  tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
-  caps a     s    d    f    g    h     j    k    l    ;    '    ret
-  lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
-  lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
+esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+@grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+caps a     s    d    f    g    h     j    k    l    ;    '    ret
+lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
+lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
 
 (deflayer layers
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _    @grk @grp @qwr lrld @sgl @sgvl _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _    _              _              _    _    _      lft down rght
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    @grk @grp @qwr lrld @sgl @sgvl _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
+_    _    _              _              _    _    _      lft down rght
 )
 
 (deflayer symbol_layer
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    @ex  _    _    _    _    ;    =    @%   @@   _    _
-  _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _    _              _              _    _    _      lft down rght
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    @ex  _    _    _    _    ;    =    @%   @@   _    _
+_    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
+_    _    _              _              _    _    _      lft down rght
+)
+
+(deflayer vim_navigation
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   @grk
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _   C-w   _    _    _      A-lft _  _    _    _    _
+_    _    _    t        _    lft A-rght  lft down up rght _   _
+_    _     _    _    _    _    n    p    _    _    _    _ pgup up pgdn
+_    _     _             _              _    _    _      lft down rght
 )
 
 (deflayer navigation
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
- lctl M-lft M-up M-down M-rght lft rght lft down up rght _   _
- lsft  _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _   lctl            _              _    _    _      lft down rght
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   @grk
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+lctl M-lft M-up M-down M-rght lft rght lft down up rght _   _
+lsft  _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
+_    _   lctl            _              _    _    _      lft down rght
 )
 
 (deflayer navigation_keys_only
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
 lctl   lft up down rght   lft rght lft down up rght _   _
-  _    _    _    _    _    _   A-n A-m    _    _    _    _ pgup up pgdn
-  _    _  lctl             _              _    _    _      lft down rght
+_    _    _    _    _    _   A-n A-m    _    _    _    _ pgup up pgdn
+_    _  lctl             _              _    _    _      lft down rght
 )
 
 (deflayer navigation_second
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    M-n M-r M-t  M-s    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _    _              _              _    _    _      lft down rght
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    M-n M-r M-t  M-s    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
+_    _    _              _              _    _    _      lft down rght
 )
 
 (deflayer scrolling_layer
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _   @sl  @sd  @su  @sr   _    _
-  _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _    _              _              _    _    _      lft down rght
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _   @sl  @sd  @su  @sr   _    _
+_    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
+_    _    _              _              _    _    _      lft down rght
 )
 
 ;; (deflayer selection_layer
@@ -173,39 +196,39 @@ lctl   lft up down rght   lft rght lft down up rght _   _
 ;; )
 
 (deflayer lmet_layer
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
-  _    n     r    t    s    g    y     h    a    e    i  @,   _
-  _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    _    _    _    _    _    _    _    _    _    _    -    =    _
+_    b     l    d    w    z    @'    f    o    u    j  ;    =    _
+_    n     r    t    s    g    y     h    a    e    i  @,   _
+_    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 @scl   _    _              _              _    _    _      lft down rght
 )
 
 (deflayer lalt_layer_g
-  _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  grv   _    _    _    _    _    _    _    _    _    _    _    _    _
+_     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+grv   _    _    _    _    _    _    _    _    _    _    _    _   A-bspc
 @C-tab   b     l    d    w    z    @'    f    o  @dwa   j  ;     _    _
-  _   A-n     r    t    s @C-g    y    @ddwa @swa @ewa  @pwa     _     _
-@lsfta   x     m    c    v    q    k   A-p    .    @-   @/ _     pgup A-up pgdn
-  _   @ascl @alctl          @spcq               @anav   _   lalt A-lft A-down A-rght
+_   A-n     r    t    s @C-g    y    @ddwa @swa @ewa  @pwa     _     _
+lsft     x     m    c    v    q    k   A-p    .    @-   @/ _     pgup A-up pgdn
+_   @ascl @alctl          @spcq               @anav   _   lalt A-lft A-down A-rght
 )
 
 (deflayer lalt_layer_q
-  _     _    _    _    _    _     _    _    _    _    _    _    _    _   _   _   _
-  _     _    _    _    _    _     _    _    _    _    _    _    _    _
+_     _    _    _    _    _     _    _    _    _    _    _    _    _   _   _   _
+_     _    _    _    _    _     _    _    _    _    _    _    _    _
 @C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
-  _     n     r    t    s @ctl_g    y     h    a    e    i  @,    _
+_     n     r    t    s @ctl_g    y     h    a    e    i  @,    _
 lsft    x     m    c    v    q    k     p    .    @-   @/ _     pgup   up pgdn
-  _   @ascl   _            @spcg               @anav   _ lalt lft down rght
+_   @ascl   _            @spcg               @anav   _ lalt lft down rght
 )
 
 (deflayer mouse_actions
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _    _    _    _    _    _    _    _    _    _    _    _    _   C-bspc
-  _ @clft @mup @crght _    _    _    _    _    _    _    _    _    _
-  _ @mlft @mbck @mrght @mmid _    _   ;    =    @%  @@    _     _
-  _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _    _              _             @anav _ _            lft down rght
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    _    _    _    _    _    _    _    _    _    _    _    _   C-bspc
+_ @clft @mup @crght _    _    _    _    _    _    _    _    _    _
+_ @mlft @mbck @mrght @mmid _    _   ;    =    @%  @@    _     _
+_    _    _   C-c  C-v   _    _    _    _    _    _    _ pgup up pgdn
+_    _    _              _             @anav _ _            lft down rght
 )
 
 ;; (deflayer cmouse_actions
@@ -219,17 +242,64 @@ lsft    x     m    c    v    q    k     p    .    @-   @/ _     pgup   up pgdn
 
 (deflayer alt_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _ @A-1 @A-2 @A-3 @A-4 @A-5 @A-6 @A-7 @A-8 @A-9 @A-0   g    y    @dline
-@A-tab b    l    d    w    z    @'    f    o    u    j    ;    =    \
-  _    n    r    t    s @alft @arght  h   a    e i @,  _
- @sft  q    x    c    v    m    k    p    .    @-    @/    _ pgup up pgdn
+  _    1    2    3    4    5    6    7    8    9    0  @C-- @C-=  @dline
+tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u @C-j @C-; @C-= @C-\
+  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e @C-i @C-, @C-ret
+@sft @C-q @C-x @C-c @C-v @C-m @C-k @C-p @C-. @C--    @C-/   @C-rsft pgup up pgdn
 lalt  _    _               _            _    _    _      lft down rght
 )
+
+(defalias
+  dom_nav (multi (release-key alt) lctl (layer-while-held navigation))
+  lsftl (multi lsft (layer-while-held shift_layer))
+  C-, (multi (release-key alt) C-,)
+  C-- (multi (release-key alt) C--)
+  C-/ (multi (release-key alt) C-/)
+  C-b (multi (release-key alt) C-b)
+  C-l (multi (release-key alt) C-l)
+  C-d (multi (release-key alt) C-d)
+  C-w (multi (release-key alt) C-w)
+  C-z (multi (release-key alt) C-z)
+  C-f (multi (release-key alt) C-f)
+  C-o (multi (release-key alt) C-o)
+  C-u (multi (release-key alt) C-u)
+  C-j (multi (release-key alt) C-j)
+  C-; (multi (release-key alt) C-;)
+  C-= (multi (release-key alt) C-=)
+  C-\ (multi (release-key alt) C-\)
+  C-n (multi (release-key alt) C-n)
+  C-r (multi (release-key alt) C-r)
+  C-t (multi (release-key alt) C-t)
+  C-s (multi (release-key alt) C-s)
+  C-h (multi (release-key alt) C-h)
+  C-a (multi (release-key alt) C-a)
+  C-e (multi (release-key alt) C-e)
+  C-i (multi (release-key alt) C-i)
+  C-ret (multi (release-key alt) C-ret)
+  C-x (multi (release-key alt) C-x)
+  C-m (multi (release-key alt) C-m)
+  C-c (multi (release-key alt) C-c)
+  C-v (multi (release-key alt) C-v)
+  C-q (multi (release-key alt) C-q)
+  C-k (multi (release-key alt) C-k)
+  C-p (multi (release-key alt) C-p)
+  C-rsft (multi (release-key alt) C-rsft)
+  C-. (multi (release-key alt) C-.)
+)
+
+;; (deflayer alt_tweaks
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+;;   _ @A-1 @A-2 @A-3 @A-4 @A-5 @A-6 @A-7 @A-8 @A-9 @A-0   g    y    @dline
+;; @A-tab b    l    d    w    z    @'    f    o    u    j    ;    =    \
+;;   _    n    r    t    s @alft @arght  h   a    e i @,  _
+;;  @sft  q    x    c    v    m    k    p    .    @-    @/    _ pgup up pgdn
+;; lalt  _    _               _            _    _    _      lft down rght
+;; )
 
 (deflayer salt_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
-@A-tab b    l    d    w    z    @'    f    o    u    j    ;    =    \
+@A-tab q    l    d    w    z    @'    f    o    u    j    ;    =    \
   _    n    r    t    s @alft @arght h    a    e    i    ,    _
  @sft  q    x    c    v    m    k    p    .    -    /    _ pgup up pgdn
 lalt  _    _               spc           _    _    _      lft down rght
@@ -276,7 +346,7 @@ lalt  _    _               spc           _    _    _      lft down rght
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _  @lctl            _              _    _    _      lft down rght
+lctl   _  @lctl            _              _    _    _      lft down rght
 )
 
 (deflayer shift_alt_layer
@@ -312,7 +382,7 @@ lalt  _    _               spc           _    _    _      lft down rght
   tab   S-b  S-l  S-d  S-w  S-z    @'  S-f  S-o  S-u  S-j  S-;  S-=  S-\
 @ctresc S-n S-r S-t  S-s  S-g  S-y   S-h  S-a  S-e  S-i    @,   ret
  @lsft  S-x   S-m  S-c  S-v  S-q  S-k   S-p  S-.   S-'   @/   rsft  pgup up pgdn
-  @chlctl @chlmet  @chlalt        spc             @chralt @prtsc @rctl lft down rght
+  @laltg @lmet @laltb        spc             @nav @prtsc @rctl lft down rght
 )
 
 (defaliasenvcond (LAPTOP lp1)
@@ -408,9 +478,10 @@ lalt  _    _               spc           _    _    _      lft down rght
        % S-5
      mau A-up
      mad A-down
-    alft (multi (release-key ctl) A-lft)
-   arght (multi (release-key ctl) A-rght)
-
+;;  alft (multi (release-key ctl) A-lft)
+;; arght (multi (release-key ctl) A-rght)
+    alft lft
+   arght rght
 )
 (defalias
   ex S-1
@@ -422,15 +493,15 @@ lalt  _    _               spc           _    _    _      lft down rght
   / (fork / , (lsft rsft))
 )
 (defalias
-  spcq (multi (layer-switch qwerty) A-spc)
-  spcg (multi (layer-switch graphite_angle_kp) A-spc)
-  dline (multi (release-key ctl) lsft home bspc)
-  laltb (tap-dance 300 ((multi lctl (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite_angle_kp)) (one-shot-press 60000 lctl)))
-  ;; laltb (multi alt (layer-while-held alt_tweaks))
+  spcq (multi (layer-switch qwerty) C-spc)
+  spcg (multi (layer-switch graphite_angle_kp) C-spc)
+  dline (multi (release-key alt) lsft home bspc)
+;;laltb (tap-dance 300 ((multi lalt (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite_angle_kp)) (one-shot-press 60000 lctl)))
+  laltb (multi alt (layer-while-held alt_tweaks))
   ;; laltb (layer-while-held alt_tweaks)
   bspw (layer-while-held mouse_actions)
   ctresc (tap-dance 300 (@bspw esc))
-  nav (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_keys_only)) (multi ralt)))
+  nav (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_keys_only)) (layer-switch vim_navigation) (layer-switch navigation) (multi ralt)))
   grl (tap-hold-press 3000 3000 grv (layer-toggle layers))
   grp (layer-switch graphite)
   sgl (layer-switch gaming_layout)
@@ -439,32 +510,44 @@ lalt  _    _               spc           _    _    _      lft down rght
   qwr (layer-switch qwerty)
 )
 
-(defalias
-  chlalt (chord example lalt)
-  chralt (chord example ralt)
-  chlctl (chord example lctl)
-  chlmet (chord example lmet)
+;; (defalias
+;;   chlalt (chord example lalt)
+;;   chralt (chord example ralt)
+;;   chlctl (chord example lctl)
+;;chlsft (chord example lsft)
+;;chlmet (chord example lmet)
 ;;  chlft  ( chord example lft)
 ;;  chdown ( chord example down)
 ;;  chup   ( chord example up)
 ;;  chrght ( chord example rght)
   ;; chctresc (chord example caps)
-  dom_nav (multi lctl (layer-while-held navigation))
-)
+;;)
 
-(defchords example 200
+;;(defchords example 200
 ;;  (lft           ) lft
 ;;  (down          ) down
 ;;  (up            ) up
 ;;  (rght          ) rght
 ;;  (ralt ralt down)
-  (lalt          ) @laltb
-  (ralt          ) @nav
-  (lctl          ) @laltg
-  (lmet          ) @lmet
-  (lalt ralt) @dom_nav
-  (lctl lmet) @scl
-  (lctl lalt) @lca
+;;(lalt          ) @laltb
+;;(ralt          ) @nav
+;;(lctl          ) @laltg
+;;(lmet          ) @lmet
+;;(lsft          ) (multi lsft (layer-while-held shift_layer))
+;;(lsft lctl     ) (multi lsft lalt (layer-while-held shift_alt_layer))
+;;  (lsft lmet) (multi lsft lmet (layer-while-held lmet_layer))
+;;  (lsft lalt) (multi lsft lctl (layer-while-held salt_tweaks))
+;;  (lalt ralt) @dom_nav
+;;  (lctl lmet) @scl
+;;  (lctl lalt) @lca
+;;)
+
+(defchordsv2-experimental
+  (lalt lsft) (multi lsft lctl (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
+  (lalt ralt) @dom_nav 200 all-released (nothing_layer)
+  (lalt lctl) @lca 200 all-released (nothing_layer)
+  (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
+  (lmet lctl) @scl 200 all-released (nothing_layer)
 )
 
 (deffakekeys
@@ -502,3 +585,14 @@ lalt  _    _               spc           _    _    _      lft down rght
 
   isf (on-idle-fakekey sft tap 1000)
 )
+
+;; (defalias
+;;   swt (switch
+;;     ;; case 1
+;;     ((and a b (or c d) (or e f))) @ac1 break
+;;     ;; case 2
+;;     (a b c) @ac2 fallthrough
+;;     ;; case 3
+;;     () @ac3 break
+;;   )
+;; )

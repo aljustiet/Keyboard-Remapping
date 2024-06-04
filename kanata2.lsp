@@ -422,8 +422,8 @@ lalt  _    _               spc           _    _    _      lft down rght
   / (fork / , (lsft rsft))
 )
 (defalias
-  spcq (multi (layer-switch qwerty) A-spc)
-  spcg (multi (layer-switch graphite_angle_kp) A-spc)
+  spcq (multi (layer-switch qwerty) M-spc)
+  spcg (multi (layer-switch graphite_angle_kp) M-spc)
   dline (multi (release-key ctl) lsft home bspc)
   laltb (tap-dance 300 ((multi lctl (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite_angle_kp)) (one-shot-press 60000 lctl)))
   ;; laltb (multi alt (layer-while-held alt_tweaks))
