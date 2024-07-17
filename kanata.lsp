@@ -1,5 +1,7 @@
 (defcfg
 linux-dev (
+    /dev/input/event24
+/dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
 /dev/input/by-path/platform-i8042-serio-0-event-kbd
 /dev/input/by-path/pci-0000:33:00.4-usbv2-0:1:1.0-event-kbd
 /dev/input/by-path/pci-0000:33:00.4-usb-0:1:1.0-event-kbd
@@ -19,8 +21,10 @@ linux-dev (
 /dev/input/by-id/usb-Logitech_USB_Receiver-event-if01
 /dev/input/by-id/usb-Logitech_USB_Receiver-if01-mouse
 /dev/input/by-id/usb-Logitech_USB_Receiver-if01-event-mouse
+/dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
+/dev/input/by-id/usb-Keychron_Keychron_K2-if01-event-mouse
+/dev/input/by-id/usb-Keychron_Keychron_K2-if01-mouse
 ;;  /dev/input/event27
-;;  /dev/input/event26
 ;;  /dev/input/event24
 ;;  /dev/input/event25
 ;;  /dev/input/event22
@@ -33,7 +37,7 @@ linux-dev (
 )
 concurrent-tap-hold true
 process-unmapped-keys yes
-  log-layer-changes no
+;;log-layer-changes no
 )
 
 ;; (defchordsv2-experimental
@@ -41,7 +45,7 @@ process-unmapped-keys yes
 ;; )
 
 (defsrc
-esc mute     voldwn   volu    f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+esc f1       f2       f3      f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
 grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 caps a     s    d    f    g    h     j    k    l    ;    '    ret
@@ -91,7 +95,7 @@ tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    y    t     u    i    o    p    [    ]    \
-@ctresc a  s    .    f    d    h     j    k    l    ;    '    ret
+@ctresc a  s    .    f    g    h     j    k    l    ;    '    ret
 @lsft z     x    c    v    b    n     m    ,    d    /    rsft     pgup up pgdn
 @laltq @lmet  @laltb          spc              @nav    @nlayer rctl  lft down rght
 )
@@ -106,7 +110,7 @@ lsft    q     x    m    c    v    k     p    .    @-   @/   rsft  pgup up pgdn
 )
 
 (deflayer nothing_layer
-@grk  XX     XX   XX   XX   XX   XX   XX    XX   XX   XX   XX   XX  XX   XX  XX  XX
+XX    XX     XX   XX   XX   XX   XX   XX    XX   XX   XX   XX   XX  XX   XX  XX @grk
 XX    XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX
 XX   XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX
 XX      XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX
@@ -125,7 +129,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 
 (deflayer layers
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-_    @grk @grp @qwr lrld @sgl @sgvl _    _    _    _    _    _    _
+_    @grk @grp @qwr lrld @sgl @sgvl @nl  _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
@@ -145,7 +149,7 @@ _    _    _              _              _    _    _      lft down rght
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   @grk
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _   C-w   _    _    _      A-lft _  _    _    _    _
-_    _    _    t        _    lft A-rght  lft down up rght _   _
+_    lft up down rght        lft A-rght  lft @sdd @sdu rght _   _
 _    _     _    _    _    _    n    p    _    _    _    _ pgup up pgdn
 _    _     _             _              _    _    _      lft down rght
 )
@@ -206,10 +210,10 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 
 (deflayer lalt_layer_g
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-grv   _    _    _    _    _    _    _    _    _    _    _    _   A-bspc
-@C-tab   b     l    d    w    z    @'    f    o  @dwa   j  ;     _    _
-_   A-n     r    t    s @C-g    y    @ddwa @swa @ewa  @pwa     _     _
-lsft     x     m    c    v    q    k   A-p    .    @-   @/ _     pgup A-up pgdn
+grv  C-1  C-2  C-3  C-4  C-5  C-6  C-7  C-8  C-9  C-0   _    _   C-bspc
+@C-tab   b     l    d  C-w    z    @'    f    o  @dwa   j  ;     _    _
+_   A-n     r    t    s @C-g    y  C-h   C-S-a  C-e   C-i        _     _
+lsft     x     m    c  C-v    q    k   A-p    .    @-   @/ _     pgup A-up pgdn
 _   @ascl @alctl          @spcq               @anav   _   lalt A-lft A-down A-rght
 )
 
@@ -225,7 +229,7 @@ _   @ascl   _            @spcg               @anav   _ lalt lft down rght
 (deflayer mouse_actions
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    _    _   C-bspc
-_ @clft @mup @crght _    _    _    _    _    _    _    _    _    _
+_ @clft @mup @crght _    _    _    [    ]    _    _    _    _    _
 _ @mlft @mbck @mrght @mmid _    _   ;    =    @%  @@    _     _
 _    _    _   C-c  C-v   _    _    _    _    _    _    _ pgup up pgdn
 _    _    _              _             @anav _ _            lft down rght
@@ -244,12 +248,22 @@ _    _    _              _             @anav _ _            lft down rght
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-=  @dline
 tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u @C-j @C-; @C-= @C-\
-  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e @C-i @C-, @C-ret
-@sft @C-q @C-x @C-c @C-v @C-m @C-k @C-p @C-. @C--    @C-/   @C-rsft pgup up pgdn
+  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e i @C-, @C-ret
+@sft @C-q @C-x @C-c @C-v @C-b @C-k @C-p @C-. @C--    @C-/   @C-rsft pgup up pgdn
 lalt  _    _               _            _    _    _      lft down rght
 )
 
+(deflayer shift_control_layer
+esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home @endesc ins del
+@grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
+tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
+@ctresc n   r  @t    s    g    y     h    @A-S-a    e    i    @,   ret
+@lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
+@laltg @lmet  @laltb        spc             @nav @prtsc @rctl lft down rght
+)
+
 (defalias
+  A-S-a (multi (release-key ctl) A-a)
   dom_nav (multi (release-key alt) lctl (layer-while-held navigation))
   lsftl (multi lsft (layer-while-held shift_layer))
   C-, (multi (release-key alt) C-,)
@@ -385,6 +399,8 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   @laltg @lmet @laltb        spc             @nav @prtsc @rctl lft down rght
 )
 
+
+
 (defaliasenvcond (LAPTOP lp1)
   met @lp1me
 )
@@ -447,6 +463,8 @@ lctl   _  @lctl            _              _    _    _      lft down rght
      A-8 (multi (release-key ctl) A-8)
      A-9 (multi (release-key ctl) A-9)
      A-0 (multi (release-key ctl) A-0)
+      sdd (mwheel-down 200 308)
+      sdu (mwheel-up 200 308)
       su (multi (release-key lmet) (mwheel-up 200 308))
       sd (multi (release-key lmet) (mwheel-down 200 308))
       sl (multi (release-key lmet) (mwheel-left 200 308))
@@ -548,6 +566,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   (lalt lctl) @lca 200 all-released (nothing_layer)
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
   (lmet lctl) @scl 200 all-released (nothing_layer)
+  (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 all-released (nothing_layer)
 )
 
 (deffakekeys
