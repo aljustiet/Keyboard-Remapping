@@ -210,11 +210,11 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 
 (deflayer lalt_layer_g
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-C-grv  C-1  C-2  C-3  C-4  C-5  C-6  C-7  C-8  C-9  C-0   _    _   C-bspc
-@C-tab   b     l    d  C-w    z    @'    f    o  @dwa   j  ;     _    _
-_   A-n     r    t    s @C-g    y  C-h   C-S-a  C-e   C-i        _     _
-lsft     x     m    c  C-v    q    k   A-p    .    @-   @/ _     pgup A-up pgdn
-_   @ascl @alctl          @spcq               @anav   _   lalt A-lft A-down A-rght
+grv  1  2  3  4  5  6  7  8  9  0   _    _   bspc
+tab   b     l    d  w    z    @'    f    o  @dwc   j  ;     _    _
+_   n     r    t    s g    y  h   a  e   i        _     _
+lsft     x     m    c  v    q    k   p    .    @-   @/ _     pgup up pgdn
+_   @ascl @alctl          @spcq               @anav   _   lalt lft down rght
 )
 
 (defalias laltg (multi lctl (layer-while-held lalt_layer_g)))
@@ -435,6 +435,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
     ewa (multi (release-key alt) =)
     pwa (multi (release-key alt) S-5)
     dwa (multi (release-key alt) S-2)
+    dwc (multi (release-key ctl) S-2)
  ;; spc (tap-hold-press 600 200 spc (layer-while-held mouse_actions))
     spc spc
     lalt (multi lalt (layer-while-held graphite_angle_kp))
