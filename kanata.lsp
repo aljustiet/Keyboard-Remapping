@@ -210,12 +210,14 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 
 (deflayer lalt_layer_g
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-grv  C-1  C-2  C-3  C-4  C-5  C-6  C-7  C-8  C-9  C-0   _    _   C-bspc
+C-grv  C-1  C-2  C-3  C-4  C-5  C-6  C-7  C-8  C-9  C-0   _    _   C-bspc
 @C-tab   b     l    d  C-w    z    @'    f    o  @dwa   j  ;     _    _
 _   A-n     r    t    s @C-g    y  C-h   C-S-a  C-e   C-i        _     _
 lsft     x     m    c  C-v    q    k   A-p    .    @-   @/ _     pgup A-up pgdn
 _   @ascl @alctl          @spcq               @anav   _   lalt A-lft A-down A-rght
 )
+
+(defalias laltg (multi lctl (layer-while-held lalt_layer_g)))
 
 (deflayer lalt_layer_q
 _     _    _    _    _    _     _    _    _    _    _    _    _    _   _   _   _
@@ -474,7 +476,6 @@ lctl   _  @lctl            _              _    _    _      lft down rght
       cl (multi lctl (layer-while-held navigate_channels))
    lwhnc (layer-while-held navigate_channels)
    ctl_g (multi (release-key alt) C-g)
-   laltg (layer-while-held lalt_layer_g)
    laltq (layer-while-held lalt_layer_q)
 ;; laltg (tap-dance 300 ((one-shot-press 1 (layer-while-held lalt_layer_g)) (multi lalt (layer-while-held graphite_angle_kp))))
 ;; laltq (multi lalt (one-shot-press 800 (layer-while-held lalt_layer_q)))
