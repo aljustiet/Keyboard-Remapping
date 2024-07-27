@@ -94,9 +94,9 @@ tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 (deflayer gaming_layout
 esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-tab  q     w    e    r    y    t     u    i    o    p    [    ]    \
-@ctresc a  s    .    f    g    h     j    k    l    ;    '    ret
-@lsft z     x    c    v    b    n     m    ,    d    /    rsft     pgup up pgdn
+tab  b     l    d    w    z    '     f    o    u    j    ;    =    \
+@ctresc n  r    t    s    g    y     h    a    e    i    @,    ret
+@lsft x     m    c    v    q    k     p    .    @-    @/    rsft     pgup up pgdn
 @laltg @lmet  @galtb          spc              @nav    @nlayer rctl  lft down rght
 )
 
