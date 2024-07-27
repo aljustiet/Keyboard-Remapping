@@ -97,7 +97,7 @@ esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins d
 tab  q     w    e    r    y    t     u    i    o    p    [    ]    \
 @ctresc a  s    .    f    g    h     j    k    l    ;    '    ret
 @lsft z     x    c    v    b    n     m    ,    d    /    rsft     pgup up pgdn
-@laltq @lmet  @laltb          spc              @nav    @nlayer rctl  lft down rght
+@laltg @lmet  @galtb          spc              @nav    @nlayer rctl  lft down rght
 )
 
 (deflayer graphite_vim_layer
@@ -211,7 +211,7 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 (deflayer lalt_layer_g
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0   _    _   bspc
-tab   b     l    d  w    z    @'    f    o  @dwc   j  ;     _    _
+tab   b     l    d  w    z    @'    f    o  u      j  ;     _    _
 _   n     r    t    s g    y  h   a  e   i        _     _
 lsft     x     m    c  v    q    k   p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          @spcq               @anav   _   lalt lft down rght
@@ -250,7 +250,16 @@ _    _    _              _             @anav _ _            lft down rght
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-=  @dline
 tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u @C-j @C-; @C-= @C-\
-  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e i @C-, @C-ret
+  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e i @C-, ret
+@sft @C-q @C-x @C-c @C-v @C-b @C-k @C-p @C-. @C--    @C-/   @C-rsft pgup up pgdn
+lalt  _    _               _            _    _    _      lft down rght
+)
+
+(deflayer galt_tweaks
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+  _   @C-- @C-=  3    4    5    6    7    8    9    0  @C-- @C-=  @dline
+tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u @C-j @C-; @C-= @C-\
+  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e i @C-, ret
 @sft @C-q @C-x @C-c @C-v @C-b @C-k @C-p @C-. @C--    @C-/   @C-rsft pgup up pgdn
 lalt  _    _               _            _    _    _      lft down rght
 )
@@ -315,8 +324,8 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 (deflayer salt_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
-@A-tab q    l    d    w    z    @'    f    o    u    j    ;    =    \
-  _    n    r    t    s @alft @arght h    a    e    i    ,    _
+@A-tab @C-S-q    l    d  @C-S-w z    @'    f    o    u    j    ;    =    \
+  _    n    r   @C-S-t s @alft @arght h    a    e    i    ,    _
  @sft  q    x    c    v    m    k    p    .    -    /    _ pgup up pgdn
 lalt  _    _               spc           _    _    _      lft down rght
 )
@@ -412,6 +421,9 @@ lctl   _  @lctl            _              _    _    _      lft down rght
 )
 
 (defalias
+    C-S-q (multi (release-key alt) C-q)
+    C-S-w (multi (release-key alt) C-w)
+    C-S-t (multi (release-key alt) C-t)
     lca (multi lctl lalt)
     alctl (multi lalt lctl)
     al_lft (multi (release-key ctl) lft)
@@ -517,6 +529,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   spcg (multi (layer-switch graphite_angle_kp) C-spc)
   dline (multi (release-key alt) lsft home bspc)
 ;;laltb (tap-dance 300 ((multi lalt (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite_angle_kp)) (one-shot-press 60000 lctl)))
+  galtb (multi alt (layer-while-held galt_tweaks))
   laltb (multi alt (layer-while-held alt_tweaks))
   ;; laltb (layer-while-held alt_tweaks)
   bspw (layer-while-held mouse_actions)
@@ -563,7 +576,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
 ;;)
 
 (defchordsv2-experimental
-  (lalt lsft) (multi lsft lctl (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
+  (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lalt ralt) @dom_nav 200 all-released (nothing_layer)
   (lalt lctl) @lca 200 all-released (nothing_layer)
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
