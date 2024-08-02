@@ -232,7 +232,7 @@ _   @ascl   _            @spcg               @anav   _ lalt lft down rght
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    _    _   C-bspc
 _ @clft @mup @crght _    _    _    [    ]    _    _    _    _    _
-_ @mlft @mbck @mrght @mmid _    _   ;    =    @%  @@    _     _
+_ @mlft @mbck @mrght @mmid _    _   S-;    =    @%  @@    _     _
 _    _    _   C-c  C-v   _    _    _    _    _    _    _ pgup up pgdn
 _    _    _              _             @anav _ _            lft down rght
 )
@@ -275,7 +275,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 
 (defalias
   A-S-a (multi (release-key ctl) A-a)
-  dom_nav (multi (release-key alt) lctl (layer-while-held navigation))
+  dom_nav (multi ctl (layer-while-held navigation))
   lsftl (multi lsft (layer-while-held shift_layer))
   C-, (multi (release-key alt) C-,)
   C-- (multi (release-key alt) C--)
@@ -326,7 +326,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
 @A-tab @C-S-q    l    d  @C-S-w z    @'    f    o    u    j    ;    =    \
   _    n    r   @C-S-t s @alft @arght h    a    e    i    ,    _
- @sft  q    x    c    v    m    k    p    .    -    /    _ pgup up pgdn
+ @sft  q @C-S-m @C-S-c @C-S-v    m    k    p    .    -    /    _ pgup up pgdn
 lalt  _    _               spc           _    _    _      lft down rght
 )
 
@@ -421,6 +421,9 @@ lctl   _  @lctl            _              _    _    _      lft down rght
 )
 
 (defalias
+    C-S-m (multi (release-key alt) C-m)
+    C-S-v (multi (release-key alt) C-v)
+    C-S-c (multi (release-key alt) C-c)
     C-S-q (multi (release-key alt) C-q)
     C-S-w (multi (release-key alt) C-w)
     C-S-t (multi (release-key alt) C-t)
@@ -480,10 +483,10 @@ lctl   _  @lctl            _              _    _    _      lft down rght
      A-0 (multi (release-key ctl) A-0)
       sdd (mwheel-down 200 308)
       sdu (mwheel-up 200 308)
-      su (multi (release-key lmet) (mwheel-up 200 308))
-      sd (multi (release-key lmet) (mwheel-down 200 308))
-      sl (multi (release-key lmet) (mwheel-left 200 308))
-      sr (multi (release-key lmet) (mwheel-right 200 308))
+      su (multi (release-key lmet) (mwheel-up 200 768))
+      sd (multi (release-key lmet) (mwheel-down 200 768))
+      sl (multi (release-key lmet) (mwheel-left 200 768))
+      sr (multi (release-key lmet) (mwheel-right 200 768))
     anav (multi (release-key lctl) (layer-while-held navigate_channels))
       nl (layer-switch nothing_layer)
       cl (multi lctl (layer-while-held navigate_channels))
@@ -497,10 +500,10 @@ lctl   _  @lctl            _              _    _    _      lft down rght
  ;; ascl (multi (release-key alt) (layer-while-held scrolling_layer))
     ascl (layer-while-held scrolling_layer)
     lmet (multi lmet (layer-while-held lmet_layer))
-     mup (movemouse-up    16 12)
-    mbck (movemouse-down  16 12)
-    mlft (movemouse-left  16 12)
-   mrght (movemouse-right 16 12)
+     mup (movemouse-up    16 16)
+    mbck (movemouse-down  16 16)
+    mlft (movemouse-left  16 16)
+   mrght (movemouse-right 16 16)
 ;; addml (multi (movemouse-left 16 5) (layer-while-held diagonally_down_movement_layer))
   ;; lrm (multi (release-key lctl) (movemouse-left 16 5) (movemouse-down 16 5))
     clft mlft
@@ -576,12 +579,15 @@ lctl   _  @lctl            _              _    _    _      lft down rght
 ;;)
 
 (defchordsv2-experimental
+  (lctl lsft ralt) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
+  (lalt lsft ralt) (multi ctl sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
+  (lctl ralt) (multi lalt (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
   (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lalt ralt) @dom_nav 200 all-released (nothing_layer)
   (lalt lctl) @lca 200 all-released (nothing_layer)
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
   (lmet lctl) @scl 200 all-released (nothing_layer)
-  (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 all-released (nothing_layer)
+;; (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 all-released (nothing_layer)
 )
 
 (deffakekeys
